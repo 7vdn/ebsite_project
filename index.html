@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Your Order Number</h1>
+        <input type="text" id="order-number" placeholder="Order Number">
+        <button onclick="verifyOrder()">Verify Order</button>
+        <div id="error-message" class="hidden">Invalid Order Number. Please try again.</div>
+        <div id="waiting-message" class="hidden">Please wait while we process your request...</div>
+        <div id="verification-code" class="hidden">
+            <h2>Verification Code: <span id="code"></span></h2>
+            <button onclick="copyCode()">Copy Code</button>
+            <button onclick="resendCode()">Resend Code</button>
+            <div id="expiry-timer"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
