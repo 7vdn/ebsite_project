@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,5 +22,19 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Polling للتحقق من وجود كود تحقق
+        function checkForVerificationCode(orderId) {
+            fetch(`https://neurt.netlify.app/.netlify/functions/zapier-webhook?orderId=${orderId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code) {
+                        handleVerificationCode(data);
+                    } else {
+                        setTimeout(() => checkForVerificationCode(orderId), 5000);
+                    }
+                });
+        }
+    </script>
 </body>
 </html>
